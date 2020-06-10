@@ -139,7 +139,10 @@ public class BarcodeManager extends CordovaPlugin {
     private boolean pressTrigger(CallbackContext callbackContext){
         if(decoder != null){
             try{
+				//herve1
+                //if (decoder.pressTrigger() == DecodeException.SUCESS) {
                 if (decoder.pressTrigger() == DecodeException.SUCCESS) {
+					
                     PluginResult result = new PluginResult(PluginResult.Status.OK, "Successfully pressed the trigger");
                     callbackContext.sendPluginResult(result);
                     return true;
@@ -148,7 +151,9 @@ public class BarcodeManager extends CordovaPlugin {
                 Log.e(LOGTAG, "Error while pressing the trigger", e);
             }
         }
-        PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while pressing the trigger");
+		//herve2
+		// PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while pressing the trigger " + e.getMessage() );
+        PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while pressing the trigger "  );
         callbackContext.sendPluginResult(result);
         return false;
     }
@@ -165,7 +170,9 @@ public class BarcodeManager extends CordovaPlugin {
                 Log.e(LOGTAG, "Error while releasing the trigger", e);     
             }
         }
-        PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while releasing the trigger");
+		//herve3
+        //PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while releasing the trigger " + e.getMessage() );
+		PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Error while releasing the trigger "  );
         callbackContext.sendPluginResult(result);
         return false;
     }
